@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
 use Yii;
@@ -157,5 +158,28 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionMessage()
+    {
+        if (!Yii::$app->user->isGuest) {
+            $model = new Message();
+            $messages = Message::find()->all();
+
+            if ($model->load(Yii::$app->request->post())) {
+                $model->user_id = Yii::$app->user->id;
+                if ($model->save()) {
+                    Yii::$app->session->setFlash('success', 'Сообщение отправлено!');
+                    return $this->refresh();
+                }
+            }
+
+            return $this->render('message', [
+                'model' => $model,
+                'messages' => $messages,
+            ]);
+        } else {
+            return $this->redirect(['site/login']);
+        }
     }
 }
