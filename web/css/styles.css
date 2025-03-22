@@ -1,0 +1,133 @@
+/* Общие стили для body */
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+}
+/* Прочие стили */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-left: 20%;
+    align-items: center; /* Сдвигаем основной контент вправо, чтобы освободить место для side bar */
+}
+
+.duty-hours {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 100px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #E0E0E0;
+}
+
+.avatar {
+    display: flex;
+    margin-left: 5px;   
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+}
+
+.duty-button {
+    display: flex;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 30px;
+    margin-top: 33px;
+    border: none;
+    border-radius: 10px;
+    height: 33px;
+    color: white;
+    background-color: #E708C8;
+}
+
+.duty-button:hover {
+    background-color: #B00097;
+}
+
+.text {
+    display: flex;
+    margin-left: 10px;
+}
+
+.task-table {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: #E0E0E0;
+    border-radius: 5px;
+    margin: 5px;
+    column-gap: 5px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-table {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    gap: 30%;
+}
+
+.string-table {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    gap: 30%;
+    background-color: white;
+    border-radius: 5px;
+    border-color: #E0E0E0;
+    border-width: 5px;
+}
+
+.loginbut {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+}
+
+.butlog {
+    display: flex;
+    width: 120px;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    background-color: #E708C8;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.butlog:hover {
+    background-color: #B00097;
+}
+
+p {
+ width: 200px;   
+}
+
+.reg-but-regsite {
+    display: flex;
+    width: 200px;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    background-color: #E708C8;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.reg-but-regsite:hover {
+    background-color: #B00097;
+}

@@ -80,7 +80,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->render('homePage');
         }
 
         $model->password = '';
@@ -139,7 +139,7 @@ class SiteController extends Controller
         $model = new ReportForm();
         if ($model->load(Yii::$app->request->post())){
             if ($model->save()){
-                Yii::$app->session->setFlash('success', 'cспасибо');
+                Yii::$app->session->setFlash('success', 'спасибо');
 
                 return $this->refresh();
             }
@@ -158,6 +158,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionHomePage()
+    {
+        return $this->render('homePage');
     }
 
     public function actionMessage()

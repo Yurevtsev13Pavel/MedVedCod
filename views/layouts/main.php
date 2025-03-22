@@ -28,30 +28,30 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </head>
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
-
-<header id="header">
+<div class="sidebar">
+    <img class="logo" src="<?= Yii::getAlias('images/logo.png') ?>" alt="Logo">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+     //   'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
+        'options' => ['class' => 'logo']
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
+        'options' => ['class' => 'buttons'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Message', 'url' => ['/site/message']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'register', 'url' => ['/site/register']],
-            ['label' => 'report', 'url' => ['/site/report']],
+                    ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/homepage']],
+                    ['label' => 'О нас', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/about']],
+                    ['label' => 'Чат', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/message']],
+                    ['label' => 'Контакты', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/contact']],
+                    ['label' => 'Регистрация', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/register']],
+                    ['label' => 'Репорт', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/report']],
             Yii::$app->user->isGuest
-                ? ['label' => 'Login', 'url' => ['/site/login']]
-                : '<li class="nav-item">'
-                    . Html::beginForm(['/site/logout'])
+                ? ['label' => 'Вход', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/login']]
+                : '<li class="button-non-active">'
+                    . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'nav-link btn btn-link logout']
+                        'Выход (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'button-non-active']
                     )
                     . Html::endForm()
                     . '</li>'
@@ -59,17 +59,15 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     ]);
     NavBar::end();
     ?>
-</header>
+</div>
 
-<main id="main" class="flex-shrink-0" role="main">
-    <div class="container">
-        <?php if (!empty($this->params['breadcrumbs'])): ?>
-            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-        <?php endif ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</main>
+<div class="content">
+    <?php if (!empty($this->params['breadcrumbs'])): ?>
+        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <?php endif ?>
+    <?= Alert::widget() ?>
+    <?= $content ?>
+</div>
 
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">

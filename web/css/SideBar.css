@@ -1,0 +1,73 @@
+/* Стили для side bar */
+.sidebar {
+    position: fixed; /* Фиксируем боковое меню */
+    top: 0;
+    left: 0;
+    width: 20%; /* Боковое меню занимает 20% ширины страницы */
+    height: 100vh; /* Высота равна высоте окна просмотра */
+    background-color: white; /* Цвет фона */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для выделения */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Логотип */
+.logo {
+    height: calc(100vh / 8); /* Высота логотипа составляет 1/8 от высоты страницы */
+    background-size: contain; /* Масштабируем изображение по размеру контейнера */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Обновленные стили для кнопок */
+.buttons {
+    display: flex;
+    flex-direction: column; /* Кнопки располагаются вертикально */
+    align-items: stretch; /* Растягиваем кнопки по всей ширине контейнера */
+    height: calc(100vh * 6 / 8);/* Высота кнопок составляет 6/8 от высоты страницы */
+    width: 90%; /* Кнопки занимают всю ширину side bar */
+    margin-left: 5%;
+}
+
+.button-non-active {
+    width: 100%; /* Каждая кнопка занимает всю ширину контейнера .buttons */
+    height: 30px; /* Фиксированная высота кнопки */
+    background-color: whitesmoke;
+    color: black !important;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Расстояние между кнопками равно 10 пикселям */
+    padding: 0; /* Убираем внутренние отступы */
+}
+
+.button-non-active:hover {
+    background-color: #00A898; /* Темнее зеленый цвет при наведении */
+    color: #B00097;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100vh / 8);
+    background-color: #F5F5F5;
+}
+
+.butlogin {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #E708C8;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.butlogin:hover {
+    background-color: #B00097;
+}

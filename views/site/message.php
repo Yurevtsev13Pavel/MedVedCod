@@ -1,5 +1,4 @@
 
-
 <h1>Чат</h1>
 
 <?php
@@ -7,16 +6,22 @@ use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 
 foreach ($messages as $message): ?>
-    <div class="message" style="margin-top: 20px; background-color: #7b5a7d; color: white; padding-left: 15px; border-radius: 15px; ">
-        <p> <?= Yii::$app->user->identity->username ?? 'Аноним' ?></p>
-        <p> <?= $message->text ?></p>
-        <p> <?= date('d.m.Y H:i', strtotime($message->created_at)) ?></p>
+    <div class="messages">
+        <div class="message-container">
+            <p> <?= Yii::$app->user->identity->username ?? 'Аноним' ?></p>
+            <p> <?= $message->text ?></p>
+            <p> <?= date('d.m.Y H:i', strtotime($message->created_at)) ?></p>
+        </div>
     </div>
 <?php endforeach; ?>
 
-<?php $form = ActiveForm::begin(); ?>
-<?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
-<div class="form-group">
-    <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
+<div class="message-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <div class="text-pole">
+        <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
+    </div>
+    <div>
+        <?= Html::submitButton('Отправить', ['class' => 'reg-but-regsite']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
 </div>
-<?php ActiveForm::end(); ?>
