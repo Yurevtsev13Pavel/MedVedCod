@@ -6,6 +6,7 @@ use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
 use app\models\TaskTable;
+use app\models\reester;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -66,6 +67,16 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actinoReester()
+    {
+        if (!Yii::$app->user->isGuest) {
+            $patients = reester::find()->all();
+            return $this->render('reester', ['patients' => $patients]);
+        } else {
+            return $this->redirect(['site/login']);
+        }
     }
 
     /**
@@ -151,20 +162,14 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
     public function actionHome()
     {
-        $rows = TaskTable::find()->all();
-        return $this->render('home', ['rows'=>$rows]);
+        if (!Yii::$app->user->isGuest) {
+            $rows = TaskTable::find()->all();
+            return $this->render('home', ['rows' => $rows]);
+        } else {
+            return $this->redirect(['site/login']);
+        }
     }
 
     public function actionMessage()

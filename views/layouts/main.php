@@ -40,7 +40,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => 'buttons'],
         'items' => [
                     ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/home']],
-                    ['label' => 'О нас', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/about']],
+                    ['label' => 'Реестр Пациентов', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/reester']],
                     ['label' => 'Чат', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/message']],
                     ['label' => 'Контакты', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/contact']],
                     ['label' => 'Регистрация', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/register']],

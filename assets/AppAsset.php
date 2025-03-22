@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'css/styles.css',
         'css/loginReg.css',
         'css/chats.css',
+        'css/reestr.css',
     ];
     public $js = [
     ];
