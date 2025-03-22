@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
+use app\models\TaskTable;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -80,7 +81,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->render('homePage');
+            return $this->actionHome();
         }
 
         $model->password = '';
@@ -160,9 +161,10 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionHomePage()
+    public function actionHome()
     {
-        return $this->render('homePage');
+        $rows = TaskTable::find()->all();
+        return $this->render('home', ['rows'=>$rows]);
     }
 
     public function actionMessage()
