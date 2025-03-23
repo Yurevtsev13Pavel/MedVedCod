@@ -69,7 +69,7 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actinoReester()
+    public function actionReester()
     {
         if (!Yii::$app->user->isGuest) {
             $patients = reester::find()->all();

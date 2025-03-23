@@ -15,9 +15,7 @@ class reester extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Имя',
-            'surbame' => 'Фамилия',
-            'pathronymic' => 'Отчество',
+            'name' => 'ФИО',
             'date_of_birth' => 'Дата Рождения',
             'numbercard' => 'Номер карты',
             'diagnez' => 'Основной диагноз',
