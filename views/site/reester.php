@@ -28,4 +28,4 @@ $this->title = 'Реестр пациентов';
     ?>
 </table>
 
-<?= Html::a('Добавить', ['addpatient'], ['class' => 'button-add']) ?>
+<?= Html::a('Добавить', ['report'], ['class' => 'button-add']) ?>

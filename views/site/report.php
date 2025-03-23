@@ -45,7 +45,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name')) ?>
 
-
+                    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+                    <?= $form->field($model, 'datebirth')->textInput(['autofocus' => true]) ?>
+                    <?= $form->field($model, 'cardnumber')->textInput(['autofocus' => true]) ?>
 
                     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 

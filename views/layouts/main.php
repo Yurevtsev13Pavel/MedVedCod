@@ -39,12 +39,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'buttons'],
         'items' => [
-                    ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/home']],
-                    ['label' => 'Реестр Пациентов', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/reester']],
-                    ['label' => 'Чат', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/message']],
-                    ['label' => 'Контакты', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/contact']],
-                    ['label' => 'Регистрация', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/register']],
-                    ['label' => 'Репорт', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/report']],
+                    ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/home'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/index'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Реестр Пациентов', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/reester'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Чат', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/message'], 'visible' => !Yii::$app->user->isGuest],
+//                    ['label' => 'Контакты', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/contact']],
+                    ['label' => 'Регистрация', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/register'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Добавить пациента', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/report'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest
                 ? ['label' => 'Вход', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/login']]
                 : '<li class="button-non-active">'
