@@ -5,8 +5,22 @@
     width: 95%;
     align-items: stretch;
     position: fixed;
+    margin-left: 6%;
+    margin-top: 13%;
 }
 
+.button-chat {
+    margin-top: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background-color: #E708C8;
+    color: white;
+    height: 4%;
+    width: 10%;
+}
 
 .messages {
     display: flex;

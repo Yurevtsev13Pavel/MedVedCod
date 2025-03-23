@@ -14,9 +14,11 @@ foreach ($messages as $message): ?>
     </div>
 <?php endforeach; ?>
 
+<div class="message-form">
 <?php $form = ActiveForm::begin(); ?>
     <div class="message-form">
         <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
-        <?= Html::submitButton('Отправить', ['class' => 'reg-but-regsite'])?>
+        <?= Html::submitButton('Отправить', ['class' => 'button-chat'])?>
     </div>
 <?php ActiveForm::end(); ?>
+</div>
