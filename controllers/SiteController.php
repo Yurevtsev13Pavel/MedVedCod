@@ -79,6 +79,11 @@ class SiteController extends Controller
         }
     }
 
+    public function actionAddpatient()
+    {
+        return $this->render('addpatient');
+    }
+
     /**
      * Login action.
      *
