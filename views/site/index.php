@@ -12,12 +12,6 @@ $this->title = 'Добро Пожаловать';
 <h3>Система автоматизированного места дежурного врача</h3>
 <img src="<?= Yii::getAlias('images/logo.png') ?>" alt="Logo">
 <div class="loginbut">
-    <?=
-    Html::submitButton('Регистрация', ['class' => 'butlog',
-        'url' => ['/site/register']]);
-    ?>
-    <?=
-    Html::submitButton('Вход', ['class' => 'butlog',
-        'url' => ['/site/login']])
-    ?>
+    <?= Html::a('Регистрация', ['register'], ['class' => 'butlog']) ?>
+    <?= Html::a('Вход', ['login'], ['class' => 'butlog']) ?>
 </div>

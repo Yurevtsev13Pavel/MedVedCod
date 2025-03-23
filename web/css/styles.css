@@ -96,6 +96,7 @@ body {
     display: flex;
     width: 120px;
     height: 100%;
+    text-decoration: none;
     border: none;
     border-radius: 15px;
     background-color: #E708C8;
