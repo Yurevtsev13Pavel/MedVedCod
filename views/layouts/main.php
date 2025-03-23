@@ -45,7 +45,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Чат', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/message'], 'visible' => !Yii::$app->user->isGuest],
 //                    ['label' => 'Контакты', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/contact']],
                     ['label' => 'Регистрация', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/register'], 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Добавить пациента', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/report'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest
                 ? ['label' => 'Вход', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/login']]
                 : '<li class="button-non-active">'

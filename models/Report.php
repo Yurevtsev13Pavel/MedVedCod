@@ -31,8 +31,8 @@ class Report extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'category_id', 'text'], 'required'],
-            [['user_id', 'category_id'], 'integer'],
+            [['user_id', 'category_id', 'text', 'name', 'datebirth', 'cardnumber'], 'required'],
+            [['user_id', 'category_id', 'cardnumber'], 'integer'],
             [['text'], 'string'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],

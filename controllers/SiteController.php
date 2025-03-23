@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\addpatient;
 use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
@@ -81,7 +82,19 @@ class SiteController extends Controller
 
     public function actionAddpatient()
     {
-        return $this->render('addpatient');
+        $model = new addpatient();
+        if ($model->load(Yii::$app->request->post())){
+            if ($model->save()){
+                Yii::$app->session->setFlash('success', 'Пациент добавлен');
+
+                return $this->refresh();
+            }
+
+        }
+
+        return $this->render('addpatient', [
+            'model'=>$model,
+            ]);
     }
 
     /**

@@ -35,6 +35,7 @@
     height: 30px; /* Фиксированная высота кнопки */
     background-color: whitesmoke;
     color: black !important;
+    text-decoration: none;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
