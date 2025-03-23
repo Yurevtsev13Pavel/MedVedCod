@@ -14,13 +14,9 @@ foreach ($messages as $message): ?>
     </div>
 <?php endforeach; ?>
 
+<?php $form = ActiveForm::begin(); ?>
     <div class="message-form">
-        <?php $form = ActiveForm::begin(); ?>
-        <div>
-            <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
-        </div>
-        <div>
-            <?= Html::submitButton('Отправить', ['class' => 'reg-but-regsite'])?>
-        </div>
-        <?php ActiveForm::end(); ?>
+        <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
+        <?= Html::submitButton('Отправить', ['class' => 'reg-but-regsite'])?>
     </div>
+<?php ActiveForm::end(); ?>

@@ -1,10 +1,10 @@
 .message-form {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 5px;
-    margin-left:10px;
     justify-content: left;
+    flex-direction: row;
+    width: 95%;
+    align-items: stretch;
+    position: fixed;
 }
 
 
