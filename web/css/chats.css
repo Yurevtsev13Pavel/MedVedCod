@@ -1,19 +1,18 @@
 .message-form {
     display: flex;
     flex-direction: row;
-    position: fixed;
     width: 100%;
+    margin-bottom: 5px;
+    margin-left:10px;
+    justify-content: left;
 }
+
 
 .messages {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-}
-
-.text-pole {
-    width: 100%;
 }
 
 .message-container {

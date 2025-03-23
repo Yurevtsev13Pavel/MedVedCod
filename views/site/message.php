@@ -1,4 +1,3 @@
-
 <h1>Чат</h1>
 
 <?php
@@ -15,13 +14,13 @@ foreach ($messages as $message): ?>
     </div>
 <?php endforeach; ?>
 
-<div class="message-form">
-    <?php $form = ActiveForm::begin(); ?>
-    <div class="text-pole">
-        <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
+    <div class="message-form">
+        <?php $form = ActiveForm::begin(); ?>
+        <div>
+            <?= $form->field($model, 'text')->textarea(['rows' => 1]) ?>
+        </div>
+        <div>
+            <?= Html::submitButton('Отправить', ['class' => 'reg-but-regsite'])?>
+        </div>
+        <?php ActiveForm::end(); ?>
     </div>
-    <div>
-        <?= Html::submitButton('Отправить', ['class' => 'reg-but-regsite']) ?>
-    </div>
-    <?php ActiveForm::end(); ?>
-</div>

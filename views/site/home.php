@@ -10,7 +10,10 @@ $this->title = 'Главная';
 <div class="duty-hours">
     <div class="avatar"></div>
     <p calss="text">Сейчас дежурит:</p>
-    <button class="duty-button">РАСПИСАНИЕ ДЕЖУРСТВ</button>
+    <?=
+    Html::submitButton('Расписание дежурств', ['class' => 'duty-button',
+        'url' => ['/site/contact']]);
+    ?>
 </div>
 
 <img src="<?= Yii::getAlias('images/logo.png') ?>" alt="Logo">
