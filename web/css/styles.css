@@ -34,6 +34,7 @@ body {
     display: flex;
     text-align: center;
     margin-left: auto;
+    text-decoration: none;
     margin-right: 30px;
     margin-top: 33px;
     border: none;

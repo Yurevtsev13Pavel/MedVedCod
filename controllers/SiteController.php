@@ -7,6 +7,7 @@ use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
 use app\models\TaskTable;
+use app\models\duty;
 use app\models\reester;
 use Yii;
 use yii\filters\AccessControl;
@@ -188,6 +189,12 @@ class SiteController extends Controller
         } else {
             return $this->redirect(['site/login']);
         }
+    }
+
+    public function actionDuty()
+    {
+        $duties = duty::find()->all();
+        return $this->render('duty', ['duties' => $duties]);
     }
 
     public function actionMessage()
