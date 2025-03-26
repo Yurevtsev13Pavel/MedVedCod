@@ -23,7 +23,7 @@ class Message extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'text' => 'Текст сообщения',
+            'text' => '',
             'user_id' => 'ID пользователя',
             'created_at' => 'Время отправки',
         ];

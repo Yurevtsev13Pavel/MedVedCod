@@ -5,12 +5,16 @@
     width: 95%;
     align-items: stretch;
     position: fixed;
-    margin-left: 6%;
+    margin-left: 2.5%;
     margin-top: 13%;
 }
 
+.pole {
+    width: 70%;
+}
+
 .button-chat {
-    margin-top: 30px;
+    margin-top: 35px;
     margin-left: 10px;
     text-decoration: none;
     text-align: center;
