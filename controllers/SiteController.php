@@ -6,6 +6,7 @@ use app\models\addpatient;
 use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
+use app\models\searchpatient;
 use app\models\TaskTable;
 use app\models\duty;
 use app\models\reester;
@@ -74,8 +75,15 @@ class SiteController extends Controller
     public function actionReester()
     {
         if (!Yii::$app->user->isGuest) {
+
+            $searchModel = new searchpatient();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
             $patients = reester::find()->all();
-            return $this->render('reester', ['patients' => $patients]);
+            return $this->render('reester', [
+                'patients' => $patients,
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
         } else {
             return $this->redirect(['site/login']);
         }

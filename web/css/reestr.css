@@ -15,3 +15,7 @@
 .button-add:hover {
     background-color: #B00097;
 }
+
+.search-block {
+    display: flex;
+}

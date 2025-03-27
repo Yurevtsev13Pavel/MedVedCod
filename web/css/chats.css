@@ -1,12 +1,9 @@
 .message-form {
     display: flex;
-    justify-content: left;
     flex-direction: row;
     width: 95%;
-    align-items: stretch;
     position: fixed;
-    margin-left: 2.5%;
-    margin-top: 13%;
+    margin-left: 3%;
 }
 
 .pole {
@@ -14,8 +11,6 @@
 }
 
 .button-chat {
-    margin-top: 35px;
-    margin-left: 10px;
     text-decoration: none;
     text-align: center;
     border: none;

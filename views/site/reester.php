@@ -4,28 +4,37 @@
 <?php
 /** @var yii\web\View $this */
 
+use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 $this->title = 'Реестр пациентов';
 ?>
 
-<table class="task-table">
-    <tr class="top-table">
-        <th>ФИО</th>
-        <th style="border-left: 2px solid #4d5154; border-right: 2px solid #4d5154;">Дата рождения</th>
-        <th style='border-right: 2px solid #4d5154;'>Номер карточки</th>
-        <th>Основной диагноз</th>
-    </tr>
-    <?php
-    foreach ($patients as $patient){
-        echo "<tr class='string-table'>
-            <td>{$patient['name']}</td>
-            <td style='border-left: 2px solid #4d5154; border-right: 2px solid #4d5154;'>{$patient['date_of_birth']}</td>
-            <td style='border-right: 2px solid #4d5154;'>{$patient['numbercard']}</td>
-            <td>{$patient['diagnez']}</td>
-            </tr>";
-    }
-    ?>
-</table>
+<div class="task-table">
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            [
+                'attribute' => 'name',
+                'filter' => Html::activeTextInput($searchModel, 'name', ['class' => 'form-control']),
+            ],
+            [
+                'attribute' => 'date_of_birth',
+                'filter' => Html::activeTextInput($searchModel, 'date_of_birth', ['class' => 'form-control']),
+            ],
+            [
+                'attribute' => 'numbercard',
+                'filter' => Html::activeTextInput($searchModel, 'numbercard', ['class' => 'form-control']),
+            ],
+            [
+                'attribute' => 'diagnez',
+                'filter' => Html::activeTextInput($searchModel, 'diagnez', ['class' => 'form-control']),
+            ],
+
+        ],
+])?>
+</div>
 
 <?= Html::a('Добавить', ['addpatient'], ['class' => 'button-add']) ?>
