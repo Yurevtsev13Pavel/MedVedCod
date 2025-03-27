@@ -214,7 +214,7 @@ class SiteController extends Controller
             if ($model->load(Yii::$app->request->post())) {
                 $model->user_id = Yii::$app->user->id;
                 if ($model->save()) {
-                    Yii::$app->session->setFlash('success', 'Сообщение отправлено!');
+                    /*Yii::$app->session->setFlash('success', 'Сообщение отправлено!');*/
                     return $this->refresh();
                 }
             }

@@ -4,6 +4,7 @@
     width: 95%;
     position: fixed;
     margin-left: 3%;
+    margin-top: 20.5%;
 }
 
 .pole {
@@ -17,8 +18,8 @@
     border-radius: 15px;
     background-color: #E708C8;
     color: white;
-    height: 4%;
-    width: 10%;
+    margin-top: 2%;
+    margin-left: 5px;
 }
 
 .messages {
@@ -36,4 +37,15 @@
     padding-left: 15px;
     border: none;
     border-radius: 15px;
+}
+
+.flash-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: auto;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
