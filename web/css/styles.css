@@ -139,11 +139,12 @@ p {
 td {
     width: 33%;
     height: 50px;
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
 }
 
 th {
+    text-align: center;
     width: 33%;
     height: 50px;
     padding-left: 10px;
