@@ -7,6 +7,7 @@ use app\models\Message;
 use app\models\RegisterForm;
 use app\models\ReportForm;
 use app\models\searchpatient;
+use app\models\zapis;
 use app\models\TaskTable;
 use app\models\duty;
 use app\models\reester;
@@ -203,6 +204,31 @@ class SiteController extends Controller
     {
         $duties = duty::find()->all();
         return $this->render('duty', ['duties' => $duties]);
+    }
+
+    public function actionCardpatient($name, $date_of_birth, $numbercard, $diagnez)
+    {
+        $zapisiDataProvider = new zapis([
+            'query' => zapis::find()
+                ->where([
+                    'name' => $name,
+                    'date_of_birth' => $date_of_birth,
+                    'numbercard' => $numbercard,
+                    'diagnez' => $diagnez
+                ])
+                ->orderBy(['date' => SORT_DESC]), // Сортировка по дате (новые сначала)
+            'pagination' => [
+                'pageSize' => 100,
+            ],
+        ]);
+
+        return $this->render('cardpatient', [
+            'name' => $name,
+            'date_of_birth' => $date_of_birth,
+            'numbercard' => $numbercard,
+            'diagnez' => $diagnez,
+            'zapisiDataProvider' => $zapisiDataProvider
+        ]);
     }
 
     public function actionMessage()
