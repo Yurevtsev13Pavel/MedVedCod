@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $form->field($model, 'diagnez')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('добавить', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('добавить', ['class' => 'reg-but-regsite']) ?>
     </div>
 
     <?php $form = ActiveForm::end() ?>

@@ -8,9 +8,11 @@ $this->title = 'Главная';
 ?>
 
 <div class="duty-hours">
-    <div class="avatar"></div>
-    <p class="text">Сейчас дежурит:</p>
-    <?= Html::a('График дежурств', ['duty'], ['class' => 'duty-button']) ?>
+    <img class="avatar-duty" src="<?= Yii::getAlias('images/avatar.png') ?>" alt="Avatar">
+    <p class="text">Сейчас дежурит:<br><?= Yii::$app->user->identity->username ?></p>
+    <div class="duty-button">
+        <?= Html::a('График дежурств', ['duty'], ['class' => 'butlog', 'style' => 'width: auto; min-width: 120px; height: 30px; line-height: 30px; padding: 0 15px;',]) ?>
+    </div>
 </div>
 
 <img src="<?= Yii::getAlias('images/logo.png') ?>" alt="Logo">

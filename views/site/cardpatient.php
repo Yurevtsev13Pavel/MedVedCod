@@ -37,8 +37,8 @@ use yii\grid\GridView;
                     'label' => 'тип записи',
                 ],
                 [
-                        'attribute' => 'date_zapis',
-                        'label' => 'Дата записи',
+                    'attribute' => 'date_zapis',
+                    'label' => 'Дата записи',
                 ],
                 [
                     'attribute' => 'zapis',

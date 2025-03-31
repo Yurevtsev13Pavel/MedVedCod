@@ -45,7 +45,7 @@
     font-weight: bold;
     font-size: 20px;
     border-radius: 5px;
-    margin-bottom: 10px; /* Расстояние между кнопками равно 10 пикселям */
+    margin-top: 10px;
     padding: 0; /* Убираем внутренние отступы */
 }
 
@@ -57,9 +57,46 @@
 .profile-section {
     display: flex;
     flex-direction: row;
+    margin-top: auto;
     width: 100%;
     height: calc(100vh / 8);
     background-color: #F5F5F5;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-left: auto;
+}
+
+.butLog {
+    display: inline-flex;
+    width: 120px;
+    height: 30px;                /* Исходная высота */
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    background-color: #E708C8;    /* Исходный цвет */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 20px;            /* Исходный отступ */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    line-height: 30px;            /* Для вертикального центрирования текста */
+    text-align: center;
+}
+
+/* Для кнопки выхода с именем пользователя */
+.butLog[data-method="post"] {
+    width: auto;
+    min-width: 120px;
+    padding: 0 15px;
+}
+
+.butlog-profile:hover {
+    background-color: #B00097;
 }
 
 .butlogin {

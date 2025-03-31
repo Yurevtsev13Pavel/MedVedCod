@@ -58,6 +58,26 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     ]);
     NavBar::end();
     ?>
+    <div class="profile-section">
+        <img class="avatar" src="<?= Yii::getAlias('images/avatar.png') ?>" alt="Avatar">
+        <?php if (!Yii::$app->user->isGuest): ?>
+            <p class="text2"><?= Yii::$app->user->identity->username ?></p>
+        <?php endif; ?>
+        <?php if (Yii::$app->user->isGuest): ?>
+            <?= Html::a('Вход', ['site/login'], [
+                'class' => 'butLog',
+                'style' => 'width: 120px; height: 30px; line-height: 30px;'
+            ]) ?>
+        <?php else: ?>
+            <?= Html::a('Выход (' . Yii::$app->user->identity->username . ')',
+                ['site/logout'],
+                [
+                    'class' => 'butLog',
+                    'style' => 'width: auto; min-width: 140px; height: 30px; line-height: 30px; padding: 0 15px;',
+                    'data' => ['method' => 'post']
+                ]) ?>
+        <?php endif; ?>
+    </div>
 </div>
 
 <div class="content">
