@@ -23,6 +23,7 @@
 /* Обновленные стили для кнопок */
 .buttons {
     display: flex;
+    text-decoration: none;
     flex-direction: column; /* Кнопки располагаются вертикально */
     align-items: stretch; /* Растягиваем кнопки по всей ширине контейнера */
     height: calc(100vh * 6 / 8);/* Высота кнопок составляет 6/8 от высоты страницы */
@@ -34,7 +35,7 @@
     width: 100%; /* Каждая кнопка занимает всю ширину контейнера .buttons */
     height: 30px; /* Фиксированная высота кнопки */
     background-color: whitesmoke;
-    color: black !important;
+    color: black; !important;
     text-decoration: none;
     border: none;
     cursor: pointer;

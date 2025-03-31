@@ -39,13 +39,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'buttons'],
         'items' => [
-                    ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/home'], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Главная', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/index'], 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Реестр Пациентов', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/reester'], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Чат', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/message'], 'visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Регистрация', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/register'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Главная', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/home'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Главная', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/index'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Реестр Пациентов', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/reester'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Чат', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/message'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Регистрация', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/register'], 'visible' => Yii::$app->user->isGuest],
             Yii::$app->user->isGuest
-                ? ['label' => 'Вход', 'options' => ['class' => 'button-non-active'], 'url' => ['/site/login']]
+                ? ['label' => 'Вход', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/login']]
                 : '<li class="button-non-active">'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
