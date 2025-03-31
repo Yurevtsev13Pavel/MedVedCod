@@ -31,11 +31,10 @@ class Report extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'category_id', 'text', 'name', 'datebirth', 'cardnumber'], 'required'],
-            [['user_id', 'category_id', 'cardnumber'], 'integer'],
-            [['text'], 'string'],
+            [['user_id', 'category_id', 'zapis', 'date_zapis', 'name', 'date_of_birth', 'numbercard'], 'required'],
+            [['user_id', 'category_id', 'numbercard'], 'integer'],
+            [['zapis'], 'string'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -47,8 +46,11 @@ class Report extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'category_id' => 'Category ID',
-            'text' => 'Text',
+            'category_id' => 'Тип записи',
+            'name' => 'Имя пациента',
+            'numbercard' => 'Номер карты',
+            'date_zapis' => 'Дата записи',
+            'zapis' => 'Запись',
         ];
     }
 

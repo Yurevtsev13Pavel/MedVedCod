@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\addpatient;
 use app\models\Message;
 use app\models\RegisterForm;
+use app\models\Report;
 use app\models\ReportForm;
 use app\models\searchpatient;
 use app\models\zapis;
@@ -12,6 +13,7 @@ use app\models\TaskTable;
 use app\models\duty;
 use app\models\reester;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -208,13 +210,13 @@ class SiteController extends Controller
 
     public function actionCardpatient($name, $date_of_birth, $numbercard, $diagnez)
     {
-        $zapisiDataProvider = new zapis([
-            'query' => zapis::find()
+        $zapisDataProvider = new ActiveDataProvider([
+            'query' => Report::find()
                 ->where([
                     'name' => $name,
                     'date_of_birth' => $date_of_birth,
                     'numbercard' => $numbercard,
-                    'diagnez' => $diagnez
+                    'diagnez' => $diagnez,
                 ])
                 ->orderBy(['date' => SORT_DESC]), // Сортировка по дате (новые сначала)
             'pagination' => [
@@ -227,7 +229,7 @@ class SiteController extends Controller
             'date_of_birth' => $date_of_birth,
             'numbercard' => $numbercard,
             'diagnez' => $diagnez,
-            'zapisiDataProvider' => $zapisiDataProvider
+            'zapisDataProvider' => $zapisDataProvider,
         ]);
     }
 

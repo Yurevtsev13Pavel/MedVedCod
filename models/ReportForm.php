@@ -39,7 +39,7 @@ class ReportForm extends Model
     public function rules()
     {
         return [
-            [['user_id', 'category_id', 'text', 'datebirth', 'cardnumber', 'name'], 'required'],
+            [['user_id', 'category_id', 'zapis', 'numbercard', 'date_zapis', 'date_of_birth', 'name'], 'required'],
             ['text', 'safe'],
 
         ];
@@ -53,8 +53,9 @@ class ReportForm extends Model
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'category_id' => 'Category ID',
-            'text' => 'Text',
+            'category_id' => 'Тип записи',
+            'zapis' => 'Запись',
+            'date_zapis' => 'Запись',
         ];
     }
 
@@ -73,10 +74,10 @@ class ReportForm extends Model
         $report = new Report();
         $report->user_id = Yii::$app->user->id;
         $report->category_id = $this->category_id;
-        $report->text = $this->text;
+        $report-> = $this->;
         $report->name = $this->name;
-        $report->datebirth = $this->datebirth;
-        $report->cardnumber = $this->cardnumber;
+        $report->date_of_birth = $this->date_of_birth;
+        $report->numbercard = $this->numbercard;
 
         return $report->save() ? $report: null;
     }
