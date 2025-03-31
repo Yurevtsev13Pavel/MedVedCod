@@ -50,6 +50,8 @@ use yii\grid\GridView;
     </div>
 </div>
 
+<?= Html::a('Добавить запись', ['report'], ['class' => 'button-add']) ?>
+
 <style>
     .patient-card {
         padding: 20px;

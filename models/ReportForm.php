@@ -9,22 +9,20 @@ use yii\base\Model;
  * This is the model class for table "report".
  *
  * @property int $id
- * @property int $user_id
  * @property int $category_id
- * @property string $text
  *
  * @property Category $category
- * @property User $user
  */
 
 class ReportForm extends Model
 {
     public $category_id;
-    public $user_id;
-    public $text;
+    public $zapis;
+    public $date_zapis;
     public $name;
-    public $cardnumber;
-    public $datebirth;
+    public $diagnez;
+    public $numbercard;
+    public $date_of_birth;
     /**
      * {@inheritdoc}
      */
@@ -39,9 +37,8 @@ class ReportForm extends Model
     public function rules()
     {
         return [
-            [['user_id', 'category_id', 'zapis', 'numbercard', 'date_zapis', 'date_of_birth', 'name'], 'required'],
-            ['text', 'safe'],
-
+            [['category_id', 'zapis', 'date_zapis'], 'required'],
+            [['date_zapis'], 'date', 'format' => 'php:Y-m-d'],
         ];
     }
 
@@ -52,10 +49,9 @@ class ReportForm extends Model
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
             'category_id' => 'Тип записи',
             'zapis' => 'Запись',
-            'date_zapis' => 'Запись',
+            'date_zapis' => 'Дата записи',
         ];
     }
 
@@ -67,15 +63,16 @@ class ReportForm extends Model
     /**
      * Gets query for [[User]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return Report
      */
 
     public function save(){
         $report = new Report();
-        $report->user_id = Yii::$app->user->id;
         $report->category_id = $this->category_id;
-        $report-> = $this->;
         $report->name = $this->name;
+        $report->diagnez = $this->diagnez;
+        $report->date_zapis = $this->date_zapis;
+        $report->zapis = $this->zapis;
         $report->date_of_birth = $this->date_of_birth;
         $report->numbercard = $this->numbercard;
 

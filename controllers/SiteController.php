@@ -181,7 +181,7 @@ class SiteController extends Controller
         $model = new ReportForm();
         if ($model->load(Yii::$app->request->post())){
             if ($model->save()){
-                Yii::$app->session->setFlash('success', 'спасибо');
+                Yii::$app->session->setFlash('success', 'Запись добавлена');
 
                 return $this->refresh();
             }
