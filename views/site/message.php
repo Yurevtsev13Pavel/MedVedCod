@@ -6,7 +6,7 @@
 
     foreach ($messages as $message): ?>
             <div class="message-container">
-                <p> <?= Yii::$app->user->identity->username ?? 'Аноним' ?></p>
+                <p> <?= $message->user_id ?? 'Аноним' ?></p>
                 <p> <?= $message->text ?></p>
                 <p> <?= date('d.m.Y H:i', strtotime($message->created_at)) ?></p>
             </div>

@@ -1,37 +1,39 @@
 <?php
-
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-/** @var app\models\ContactForm $model */
-
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
-use yii\captcha\Captcha;
 
-$this->title = 'Добавить запись';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+/* @var $model app\models\ReportForm */
+/* @var $patient app\models\Reester */
+
+$this->title = 'Новая запись для: ' . Html::encode($patient->name);
 ?>
-<div class="site-contact">
-        <h1>Добавить запись</h1>
-        <div class="row">
-            <div class="col-lg-5">
 
-                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+<div class="report-create">
+    <h1><?= Html::encode($this->title) ?></h1>
 
-                    <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name')) ?>
+    <div class="patient-info">
+        <p><strong>Номер карты:</strong> <?= $patient->numbercard ?></p>
+        <p><strong>Дата рождения:</strong> <?= Yii::$app->formatter->asDate($patient->date_of_birth) ?></p>
+        <p><strong>Диагноз:</strong> <?= Html::encode($patient->diagnez) ?></p>
+    </div>
 
-                    <?= $form->field($model, 'date_zapis')->textInput() ?>
-                    <?= $form->field($model, 'zapis')->textarea(['rows' => 6]) ?>
+    <div class="report-form">
+        <?php $form = ActiveForm::begin(); ?>
 
+        <?= $form->field($model, 'category_id')->dropDownList(
+            \yii\helpers\ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name'),
+            ['prompt' => 'Выберите тип записи']
+        ) ?>
 
+        <?= $form->field($model, 'date_zapis')->input('date') ?>
 
-                    <div class="form-group">
-                        <?= Html::submitButton('Добавить запись', ['class' => 'reg-but-regsite', 'name' => 'contact-button']) ?>
-                    </div>
+        <?= $form->field($model, 'zapis')->textarea(['rows' => 6]) ?>
 
-                <?php ActiveForm::end(); ?>
-
-            </div>
+        <div class="form-group">
+            <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
         </div>
 
+        <?php ActiveForm::end(); ?>
+    </div>
 </div>

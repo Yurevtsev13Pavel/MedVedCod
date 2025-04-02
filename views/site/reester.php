@@ -74,7 +74,7 @@ $this->title = 'Реестр пациентов';
             ],
 
         ],
-])?>
+    ])?>
 </div>
 
 <?= Html::a('Добавить', ['addpatient'], ['class' => 'button-add']) ?>

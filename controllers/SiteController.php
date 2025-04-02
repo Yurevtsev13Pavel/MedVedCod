@@ -179,16 +179,36 @@ class SiteController extends Controller
     public function actionReport()
     {
         $model = new ReportForm();
-        if ($model->load(Yii::$app->request->post())){
-            if ($model->save()){
-                Yii::$app->session->setFlash('success', 'Запись добавлена');
 
-                return $this->refresh();
-            }
+        // Получаем номер карты из GET-параметра
+        $numbercard = Yii::$app->request->get('numbercard');
 
+        if (empty($numbercard)) {
+            throw new \yii\web\BadRequestHttpException('Не указан номер карты пациента');
         }
+
+        // Находим пациента в базе
+        $patient = Reester::findOne(['numbercard' => $numbercard]);
+        if (!$patient) {
+            throw new \yii\web\NotFoundHttpException('Пациент не найден');
+        }
+
+        // Автозаполнение модели данными пациента
+        $model->numbercard = $patient->numbercard;
+        $model->name = $patient->name;
+        $model->date_of_birth = $patient->date_of_birth;
+        $model->diagnez = $patient->diagnez;
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Запись успешно сохранена');
+                return $this->redirect(['cardpatient/view', 'numbercard' => $numbercard]);
+            }
+        }
+
         return $this->render('report', [
             'model' => $model,
+            'patient' => $patient,
         ]);
     }
 
@@ -218,7 +238,7 @@ class SiteController extends Controller
                     'numbercard' => $numbercard,
                     'diagnez' => $diagnez,
                 ])
-                ->orderBy(['date' => SORT_DESC]), // Сортировка по дате (новые сначала)
+                ->orderBy(['date_of_birth' => SORT_DESC]), // Сортировка по дате (новые сначала)
             'pagination' => [
                 'pageSize' => 100,
             ],

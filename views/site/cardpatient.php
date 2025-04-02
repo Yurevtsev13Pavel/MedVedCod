@@ -35,6 +35,9 @@ use yii\grid\GridView;
                 [
                     'attribute' => 'category_id',
                     'label' => 'тип записи',
+                    'value' => function($model) {
+                        return $model->category->name; // Получаем название категории через связь
+                    }
                 ],
                 [
                     'attribute' => 'date_zapis',
@@ -50,7 +53,7 @@ use yii\grid\GridView;
     </div>
 </div>
 
-<?= Html::a('Добавить запись', ['report'], ['class' => 'button-add']) ?>
+<?= Html::a('Добавить запись', ['report', 'numbercard' => $numbercard], ['class' => 'button-add']) ?>
 
 <style>
     .patient-card {
