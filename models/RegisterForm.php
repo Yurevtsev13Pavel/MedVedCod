@@ -21,6 +21,16 @@ class RegisterForm extends Model
 
 
 
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Имя пользователя',
+            'password' => 'пароль',
+            'email' => 'Email',
+            'password_repeat' => 'Повторить пароль',
+        ];
+    }
+
 
     /**
      * @return array the validation rules.

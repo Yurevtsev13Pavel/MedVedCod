@@ -26,12 +26,12 @@ $this->title = 'Новая запись для: ' . Html::encode($patient->name)
             ['prompt' => 'Выберите тип записи']
         ) ?>
 
-        <?= $form->field($model, 'date_zapis')->input('date') ?>
+        <?= $form->field($model, 'date_zapis')->input('date' ) ?>
 
         <?= $form->field($model, 'zapis')->textarea(['rows' => 6]) ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('Добавить запись', ['class' => 'reg-but-regsite']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

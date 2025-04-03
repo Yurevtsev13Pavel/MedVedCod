@@ -14,12 +14,14 @@ $this->title = 'Добавить Пациента';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="users-form">
+<div class="report-form">
     <?php $form = ActiveForm::begin() ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name', ['inputOptions' => [
+        'style' => 'width: 1000px; height: 45px; font-size: 16px;'
+    ]])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'date_of_birth')->textInput() ?>
+    <?= $form->field($model, 'date_of_birth')->input('date') ?>
 
     <?= $form->field($model, 'numbercard')->textInput() ?>
 

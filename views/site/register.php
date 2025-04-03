@@ -29,16 +29,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'username', ['inputOptions' => [
+                'style' => 'width: 1000px; height: 45px; font-size: 16px;'
+            ]])->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'email', ['inputOptions' => [
+                'style' => 'width: 1000px; height: 45px; font-size: 16px;'
+            ]])->textInput(['autofocus' => true]) ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
-            <?= $form->field($model, 'password_repeat')->passwordInput() ?>
+            <?= $form->field($model, 'password', ['inputOptions' => [
+                'style' => 'width: 1000px; height: 45px; font-size: 16px;'
+            ]])->passwordInput() ?>
+            <?= $form->field($model, 'password_repeat', ['inputOptions' => [
+                'style' => 'width: 1000px; height: 45px; font-size: 16px;'
+            ]])->passwordInput() ?>
 
-            <?= $form->field($model, 'rememberMe')->checkbox([
-                'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-                'require' => 'true',
-                ]) ?>
 
             <div class="form-group">
                 <div>

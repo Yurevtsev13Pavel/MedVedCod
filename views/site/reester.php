@@ -1,6 +1,3 @@
-
-<h1>Реестр пациентов</h1>
-
 <?php
 /** @var yii\web\View $this */
 
@@ -10,6 +7,8 @@ use yii\widgets\ActiveForm;
 
 $this->title = 'Реестр пациентов';
 ?>
+
+<h1>Реестр пациентов</h1>
 
 <div class="task-table">
     <?= GridView::widget([
@@ -75,6 +74,7 @@ $this->title = 'Реестр пациентов';
 
         ],
     ])?>
+    <?= Html::a('Добавить', ['addpatient'], ['class' => 'butt-add']) ?>
 </div>
 
-<?= Html::a('Добавить', ['addpatient'], ['class' => 'button-add']) ?>
+

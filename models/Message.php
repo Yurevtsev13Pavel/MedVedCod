@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\db\ActiveRecord;
+
 class Message extends ActiveRecord
 {
     public static function tableName()
@@ -16,6 +17,7 @@ class Message extends ActiveRecord
             [['text', 'user_id'], 'required'],
             [['text'], 'string'],
             [['user_id'], 'integer'],
+            [['created_at'], 'safe'],
         ];
     }
 
@@ -34,8 +36,14 @@ class Message extends ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
-    public function getUserName()
+    public function beforeSave($insert)
     {
-        return $this->user ? $this->user->username : 'Аноним';
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->created_at = date('Y-m-d H:i:s');
+            }
+            return true;
+        }
+        return false;
     }
 }

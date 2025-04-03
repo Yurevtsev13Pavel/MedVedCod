@@ -61,14 +61,15 @@
     width: 100%;
     height: calc(100vh / 8);
     background-color: #F5F5F5;
-    align-items: center;
-    justify-content: space-between;
     padding: 0 15px;
+    align-items: center;
+    justify-content: stretch;
+    align-content: center;
     box-sizing: border-box;
     margin-left: auto;
 }
 
-.butLog {
+.butLog-profile {
     display: inline-flex;
     width: 120px;
     height: 30px;                /* Исходная высота */
@@ -89,13 +90,13 @@
 }
 
 /* Для кнопки выхода с именем пользователя */
-.butLog[data-method="post"] {
+.butLog-profile[data-method="post"] {
     width: auto;
     min-width: 120px;
     padding: 0 15px;
 }
 
-.butlog-profile:hover {
+.butLog-profile:hover {
     background-color: #B00097;
 }
 

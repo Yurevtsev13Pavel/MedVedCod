@@ -26,9 +26,12 @@ use yii\grid\GridView;
         ]) ?>
     </div>
 
-    <div class="patient-records">
+    <div style="display: flex; flex-direction: row;">
         <h2>Записи в карточке</h2>
+        <div style="margin-left: 2%; margin-top: 5px;"><?= Html::a('Добавить запись', ['report', 'numbercard' => $numbercard], ['class' => 'button-add'])?></div>
+    </div>
 
+    <div class="patient-records">
         <?= GridView::widget([
             'dataProvider' => $zapisDataProvider,
             'columns' => [
@@ -50,10 +53,11 @@ use yii\grid\GridView;
             ],
             'emptyText' => 'Записей не найдено',
         ]) ?>
+
     </div>
 </div>
 
-<?= Html::a('Добавить запись', ['report', 'numbercard' => $numbercard], ['class' => 'button-add']) ?>
+
 
 <style>
     .patient-card {

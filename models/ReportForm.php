@@ -34,6 +34,19 @@ class ReportForm extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'category_id' => 'Тип записи',
+            'name' => 'Имя пациента',
+            'numbercard' => 'Номер карты',
+            'date_zapis' => 'Дата записи',
+            'zapis' => 'Запись',
+            'diagnez' => 'Диагноз',
+        ];
+    }
+
     public function save()
     {
         $report = new Report();

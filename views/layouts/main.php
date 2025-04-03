@@ -46,8 +46,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Регистрация', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/register'], 'visible' => Yii::$app->user->isGuest],
             Yii::$app->user->isGuest
                 ? ['label' => 'Вход', 'linkOptions' => ['class' => 'button-non-active'], 'url' => ['/site/login']]
-                : '<li class="button-non-active">'
-                    . Html::beginForm(['/site/logout'], 'post')
+                : Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
                         'Выход (' . Yii::$app->user->identity->username . ')',
                         ['class' => 'button-non-active']
@@ -59,24 +58,26 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     NavBar::end();
     ?>
     <div class="profile-section">
-        <img class="avatar" src="<?= Yii::getAlias('images/avatar.png') ?>" alt="Avatar">
-        <?php if (!Yii::$app->user->isGuest): ?>
-            <p class="text2"><?= Yii::$app->user->identity->username ?></p>
+        <?php if (!Yii::$app->user->isGuest):?>
+            <img class="avatar" src="<?= Yii::getAlias('images/avatar.png') ?>" alt="Avatar">
         <?php endif; ?>
-        <?php if (Yii::$app->user->isGuest): ?>
-            <?= Html::a('Вход', ['site/login'], [
-                'class' => 'butLog',
-                'style' => 'width: 120px; height: 30px; line-height: 30px;'
-            ]) ?>
-        <?php else: ?>
-            <?= Html::a('Выход (' . Yii::$app->user->identity->username . ')',
-                ['site/logout'],
-                [
-                    'class' => 'butLog',
-                    'style' => 'width: auto; min-width: 140px; height: 30px; line-height: 30px; padding: 0 15px;',
-                    'data' => ['method' => 'post']
-                ]) ?>
-        <?php endif; ?>
+        <div style="display: flex; flex-direction: row; margin-left: 6%">
+            <?php if (Yii::$app->user->isGuest): ?>
+                    <?= Html::a('Вход', ['site/login'], [
+                        'class' => 'butLog-profile',
+                        'style' => 'margin-right: auto; width: 120px; height: 30px; line-height: 30px;'
+                    ]) ?>
+            <?php else: ?>
+                <?= Yii::$app->user->identity->username ?>
+                <?= Html::a('Выход',
+                    ['site/logout'],
+                    [
+                        'class' => 'butLog-profile',
+                        'style' => 'min-width: 140px; height: 30px; line-height: 30px; padding: 0 15px;',
+                        'data' => ['method' => 'post']
+                    ]) ?>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
 
@@ -89,12 +90,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </div>
 
 <footer id="footer" class="mt-auto py-3 bg-light">
-    <div class="container">
-        <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
-        </div>
-    </div>
 </footer>
 
 <?php $this->endBody() ?>

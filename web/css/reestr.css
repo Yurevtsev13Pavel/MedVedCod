@@ -1,15 +1,15 @@
 .button-add {
     text-decoration: none;
     position: fixed;
-    margin-bottom: auto;
-    margin-right: auto;
     text-align: center;
+    font-weight: bold;
     border: none;
     border-radius: 15px;
     background-color: #E708C8;
     color: white;
+    transition: background-color 0.3s ease;
     height: 4%;
-    width: 10%;
+    width: 11%;
 }
 
 .button-add:hover {
@@ -18,4 +18,23 @@
 
 .search-block {
     display: flex;
+}
+
+.butt-add {
+    text-decoration: none;
+    position: fixed;
+    margin-left: 62%;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    background-color: #E708C8;
+    color: white;
+    height: 4%;
+    width: 10%;
+}
+
+.butt-add:hover {
+    background-color: #B00097;
 }

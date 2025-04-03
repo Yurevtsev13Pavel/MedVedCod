@@ -8,7 +8,6 @@ use app\models\RegisterForm;
 use app\models\Report;
 use app\models\ReportForm;
 use app\models\searchpatient;
-use app\models\zapis;
 use app\models\TaskTable;
 use app\models\duty;
 use app\models\reester;
@@ -202,7 +201,6 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Запись успешно сохранена');
-                return $this->redirect(['cardpatient/view', 'numbercard' => $numbercard]);
             }
         }
 
@@ -255,24 +253,25 @@ class SiteController extends Controller
 
     public function actionMessage()
     {
-        if (!Yii::$app->user->isGuest) {
-            $model = new Message();
-            $messages = Message::find()->all();
-
-            if ($model->load(Yii::$app->request->post())) {
-                $model->user_id = Yii::$app->user->id;
-                if ($model->save()) {
-                    /*Yii::$app->session->setFlash('success', 'Сообщение отправлено!');*/
-                    return $this->refresh();
-                }
-            }
-
-            return $this->render('message', [
-                'model' => $model,
-                'messages' => $messages,
-            ]);
-        } else {
+        if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/login']);
         }
+
+        $model = new Message();
+        $messages = Message::find()->orderBy(['created_at' => SORT_ASC])->all();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->id;
+            if ($model->save()) {
+                return $this->refresh();
+            } else {
+                Yii::error('Ошибка сохранения сообщения: ' . print_r($model->errors, true));
+            }
+        }
+
+        return $this->render('message', [
+            'model' => $model,
+            'messages' => $messages,
+        ]);
     }
 }
